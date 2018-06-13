@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table,tr,td,th{
+            border:1px solid #000;
+            border-collapse: collapse;
+            padding:10px;
+        }
+        div{
+            padding:10px;
+        }
+        input{
+            width:500px;
+           padding: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+    <script>
+        let db = [
+            [
+                ['why'],
+                ['ennag'],
+                ['dayeg']
+            ],
+            [
+                ['dont know'],
+                ['gothle'],
+                ['gothijji']
+            ],
+            [
+                ['now'],
+                ['ekka'],
+                ['itte']
+            ],
+            [
+                ['you'],
+                ['neen'],
+                ['ee']
+            ],
+            [
+                ['will do'],
+                ['madviya'],
+                ['malpuva']
+            ],
+            [
+                ['mother','mom'],
+                ['avvo','amma'],
+                ['amma','appe']
+            ],
+            [
+                ['father','dad'],
+                ['appa','ayya','pappo','appayya'],
+                ['appa','poppa','amme','ammer']
+            ],
+            [
+                ['grandfather'],
+                ['thatha','daddappayya'],
+                ['ajja']
+            ],
+            [
+                ['grandmother'],
+                ['Avvayya','Avva','Thaayi','Thathi'],
+                ['ajji']
+            ],
+            [
+                ['maternal uncle','Paternal Aunt\'s husband'],
+                ['Mamo','Mavo']
+            ],
+            [
+                ['Maternal Uncle\'s wife','Paternal Aunt'],
+                ['Manvi','Manyi']
+            ],
+            [
+                ["Eldest Paternal Uncle","Eldest Maternal Aunt's husband"],
+                ["Baliappo","Doddappo"]],
+            [["Eldest Paternal Uncle's wife","Eldest Maternal Aunt"],["Baliavvo","Doddavvo"]],
+            [["Elder Paternal Uncle","Elder Maternal Aunt's husband"],["Bojappo"]],
+            [["Elder Paternal Uncle's wife","Elder Maternal Aunt"],["Bojavvo","Bojammo"]],
+            [["Younger Paternal Uncle","Younger Maternal Aunt's husband"],["Kunjappo"]],
+            [["Younger Paternal Uncle's wife","Younger Maternal Aunt"],["Kunjavvo","Kunjammo"]],
+            [["Youngest Paternal Uncle","Youngest Maternal Aunt's husband"],["Cheriappo"]],
+            [["Youngest Paternal Uncle's wife","Youngest Maternal Aunt"],["Cheriavvo","Cheriammo"]],
+            [["Father-in-law"],["Manvo"]],
+            [["Mother-in-law"],["Manvi","Manyi"]],
+            [["brother-in-law (elder)","cross-cousin (elder, brother)","lineal cousin (elder, sister)'s husband"],["Bavo"]],
+            [["sister-in-law (elder)","cross-cousin (elder, sister)","lineal-cousin (elder, brother)'s wife"],["Mommo"]],
+            [
+                ["brother (elder)","lineal cousin (elder brother)","cross-cousin (elder, sister)'s husband"],
+                ["Annaiah"],
+                ['anna']
+            ],
+            [
+                ["sister (elder)","lineal-cousin (elder, sister)","cross-cousin (elder, brother)'s wife"],
+                ["Akkaiah"],
+                ['akka']
+            ],
+            [
+                ["brother (younger)"],
+                ["Thammo"],
+                ['megge']
+            ],[["sister (younger)"],["Thange"]],
+            [
+                ["Wife"],
+                ["Ponne"],
+                ['Bodedi']
+            ],
+            [
+                ["Husband"],
+                ["Wadiyye"],
+                ['Kandani']
+            ],
+            [
+                ["Son"],
+                ["Movonvo"],
+                ['Magay']
+            ],
+            [
+                ["Daughter"],
+                ["Mova"],
+                ['Magal']
+            ],
+            [
+                ["Boy"],
+                ["Kinha"],
+                ['Aan']
+            ],
+            [
+                ["Go"],
+                ["Poyi"],
+                ['Pola']
+            ],
+            [
+                ["Curry (English origin from Tamil Karri)"],
+                ["Karri"],
+                ['Saar']
+            ],
+            [
+                ["Rice"],
+                ["Koole"],
+                ['Nuppu','Ganji']
+            ],
+            [
+                ["Keep"],
+                ["Ide"],
+                ['deela']
+            ],
+            [
+                ["To Eat"],
+                ["Thimbake"],
+                ['tinere']
+            ],
+            [
+                ["To Bathe"],
+                ["Koolli"],
+                ['meeyere']
+            ],
+            [
+                ["Is There"],
+                ["Und"],
+                ['undu']
+            ],
+            [
+                ["I will Come (Farewell Greeting)"],
+                ["Bappi"],
+                ['Barpe']
+            ],
+            [
+                ["Am There"],
+                ["Ullo"],
+                ['ulle']
+            ],
+            [
+                ["Am coming"],
+                ["Bandan Ullo"],
+                ['Barond ulle']
+            ],
+            [
+                [''],
+                ['bandan'],
+                ['barond']
+            ],
+            [
+                ["How are you?"],
+                ["Yenne Ulliya?"],
+                ['yencha ulla?']
+            ],
+            [
+                ['how'],
+                ['yenne'],
+                ['yencha']
+            ],
+            [
+                ["Mango (English origin from Malayalam Māṅge)"],
+                ["Māṅge"],
+                ['kukku']
+            ],
+            [
+                ["Thief"],
+                ["Kaḷḷa"],
+                ['Kalve(male)','Kalvedi(female)']
+            ],
+            [
+                ["First"],
+                ["Sooroole"],
+                ['surut','suru']
+            ],[["Rat Snake"],["Kere Pamb"]],
+            [
+                ["Corner"],
+                ["Mūle"],
+                ['Muled']
+            ],[["Tortoise"],["Āme"]],[["Fence"],["Bēli"]],
+            [
+                ["Seed"],
+                ["Bithe"],
+                ['Bithe','beeja']
+            ],
+            [
+                ["Rent"],
+                ["Bādege"],
+                ['Badige']
+            ],
+            [
+                ["Market"],
+                ["Chatte"],
+                ['Pente']
+            ],
+            [
+                ["Ladder"],
+                ["Ēni"],
+                ["Ēni"]
+            ],
+            [
+                ["Tamarind"],
+                ["Puḷi"],
+                ["Puḷi"]
+            ],
+            [
+                ["Wind"],
+                ["Gaali"],
+                ["Gaali"]
+            ],
+            [
+                ["Later"],
+                ["Bayya"],
+                ["Bokka"]
+            ],
+            [
+                ["okay"],
+                ["aachchi"],
+                ['aav']
+            ],
+            [
+                ["then"],
+                ["Pinya"],
+                ['Bokka']
+            ],
+            [
+                ["special"],
+                ["vishesaa"],
+                ["vishesaa"]
+            ],
+            [
+                ["Nothing"],
+                ["Onnu elya"],
+                ["Dala ijji",'dalijji']
+            ],
+            [
+                [""],
+                ["Onnu"],
+                ["Dala"]
+            ],
+            [
+                ["No"],
+                ["elya"],
+                ['ijji']
+            ],
+            [
+                ["okay"],
+                ["seri"],
+                ["sari"]
+            ],
+            [
+                ["go and check, see"],
+                ["Poo note"],
+                ['podu tula']
+            ],
+            [
+                ["go"],
+                ["Poo","po"],
+                ['poo',"po"]
+            ],
+            [
+                ["check","see"],
+                ["note"],
+                ['tula']
+            ],
+            
+            [
+                ["say nod night to sister"],
+                ["Good night enn akkang"],
+                ['Good night pan akkag']
+            ],
+
+            [
+                ["Go do your work"],
+                ["Poo needa kelsa mad"],
+                ['Poo ninna kelsa malpu']
+            ],
+            [
+                ["What will you do?"],
+                ["Neen enthe madviya"],
+                ["e dada malpuva"],
+            ],
+            [
+                ["call me if you are bored"],
+                ["Bore aachingi call mad"],
+                ['bore aanda call malpu']
+            ],
+            [
+                ["happens"],
+                ["aachingi"],
+                ['aanda']
+            ],
+            [
+                ["I told simply"],
+                ["Na mundathe enne"],
+                ['yan pokkade panni']
+            ],
+            [
+                ["You did/had?"],
+                ["neen maadiya?"],
+                ['e malthana?']
+            ],
+            [
+                ["Did you see?"],
+                ["notiya?"],
+                ['tuyana']
+            ],
+            [
+                ["how?"],
+                ["Yennane?"],
+                ['yencha?']
+            ],
+            [
+                ["what should i say"],
+                ["yenthe ennondu"],
+                ['dada panod']
+            ],
+            [
+                ["go"],
+                ["Popa"],
+                ['pola','pole(with respect)']
+            ],
+            [
+                ["to do"],
+                ["Maaduvo"],
+                ["Malpere"]
+            ],
+            [
+                ["you"],
+                ["neen"],
+                ['e','eer(with respect)']
+            ],
+            [
+                ["say"],
+                ["enn"],
+                ['pan']
+            ],
+            [
+                ["Ok"],
+                ["aachchi"],
+                ['aav']
+            ],
+            [
+                ["Yes"],
+                ["Akku"],
+                ['annd']
+            ],
+            [
+                ["Lets see"],
+                ["nOtana"],
+                ['tuka']
+            ],
+            [
+                ["No"],
+                ["ille"],
+                ['ijji']
+            ],
+            [
+                ["why?"],
+                ["ennang?"],
+                ['daye?']
+            ],
+            [
+                ["I'll join too"],
+                ["Naan bappi."],
+                ['yanla barpe']
+            ],
+            [
+                ["Come"],
+                ["baa"],
+                ['bala']
+            ],
+            [
+                ["Me only"],
+                ["naanobbanE"],
+                ['yan matra']
+            ],
+            [
+                ["No one else"],
+                ["dhaaroo ille"],
+                ['yerla ijjer','yerla ath']
+            ],
+            [
+                ["Nice"],
+                ["Chaayithe"],
+                ['Yedde']
+            ],
+            [
+                ["Nevermind","its ok"],
+                ["Parole"],
+                ['Malijji','Mallath']
+            ],
+            [
+                ["Its impossible"],
+                ["Idhellaa aapule."],
+                ['av aapuji']
+            ],
+            [
+                ["Come fast"],
+                ["Beriya baa"],
+                ['Bega bala','Bega Bale(with respect)']
+            ],
+            [
+                ["is it really?"],
+                ["akkuva"],
+                ['anda?','Ande?(with respect)']
+            ],
+            [
+                ["You say for me one story"],
+                ["Neen enn Nak orh story"],
+                ['e pan yenk onji story','er panle yenk onji story(with respect)']
+            ],
+            [
+                ["What is your name?"],
+                ["Needa peda yentha?"],
+                ['ninna pudar dada','irna pudar dade(with respect)']
+            ],
+            [
+                ["How are you?"],
+                ["Neen yennane ullia?"],
+                ['E yencha ulla','Eer yencha uller(with respect)']
+            ],
+            [
+                ["How do I go to Coorg?"],
+                ["Kodagikk yennane popa"],
+                ['Kodagugu yencha popun?']
+            ],
+            [
+                ["Where do you live?"],
+                ["Neen yelli ulla."],
+                ['E olpa uppunu?']
+            ],
+            [
+                ["What happened?"],
+                ["Yentha aachchi?"],
+                ["dada aand?"]
+            ],
+            [
+                ["What have you cooked for dinner?"],
+                ["Dinner nalli neen yentha maadiya?"],
+                ['Dinnergu e dada maltuda?']
+            ],
+            [
+                ["What to do?"],
+                ["Yentha maaduvo?"],
+                ['dada malpun']
+            ],
+            [
+                ["Where are you from?"],
+                ["Neen yellingee bandiye?"],
+                ['e olpard baidini']
+            ],
+            [
+                ["From where have you come?"],
+                ["Neen yellingee bandiye?"],
+                ['e olpard baidini']
+            ],
+            [
+                ["your"],
+                ["needa"],
+                ['ninna','irna*']
+            ],
+            [
+                ["name"],
+                ["peda"],
+                ['pudar']
+            ],
+            [
+                ["what"],
+                ["yentha"],
+                ['dada']
+            ],
+            [
+                ["How"],
+                ["yennane"],
+                ['yencha?']
+            ],
+            [
+                ["you"],
+                ["neen"],
+                ['e']
+            ],
+            [
+                ["where"],
+                ["yelli"],
+                ['olpa']
+            ],
+            [
+                ["do"],
+                ["Maad"],
+                ['malpu']
+            ],
+            [
+                ["come"],
+                ["baa"],
+                ['bala']
+            ],
+            [
+                ["came"],
+                ["bandiye"],
+                ['bathe']
+            ],
+            [
+                ["from where"],
+                ["yellingee"],
+                ['olpardu']
+            ],
+            [
+                ["to"],
+                ["ikk**"],
+                ["gu**"]
+            ],
+            [
+                ["good"],
+                ["chayil"],
+                ['yedde']
+            ],
+            [
+                ["me"],
+                ["naan"],
+                ['yaan']
+            ],
+            [
+                ["Beautiful"],
+                ["chayil"],
+                ['porlu']
+            ],
+            [
+                ["Very much"],
+                ["dumba"],
+                ['mast']
+            ],
+            [
+                ["My name is ....."],
+                ["Naada peda ....."],
+                ['yenna pudar .....']
+            ],
+            [
+                ["I am fine."],
+                ["Naan chayil ulla."],
+                ['Yan ushar ulle']
+            ],
+            [
+                ["I am fine. How about you?"],
+                ["Naan chayil ulla neen?"],
+                ['Yan Ushar ulle e?','yan ushar ulle er?*']
+            ],
+            [
+                ["Coorg is a beautiful place."],
+                ["Kodagu dumba chayil ulla jaga."],
+                ['Coorg mast porlu da jage.']
+            ],
+            [
+                ["Your home is very nice."],
+                ["Needa mane dumba chayithe undu."],
+                ['Ninna ill mast porlu undu','irna ill mast porlu undu*']
+            ],
+            [
+                ["My","Mine"],
+                ["Naada"],
+                ['Yenna']
+            ],
+            [
+                [''],
+                ['ulliya'],
+                ['ulla']
+            ],
+            [
+                [''],
+                ['madiyand'],
+                ['malthondulla']
+            ],  
+            [
+                [''],
+                ['chai'],
+                ['yedde']
+            ],
+
+        ];
+
+
+
+
+
+
+
+    </script>
+    <div>
+        <input type="text" placeholder="search.." onkeyup="shortlist(this)"/>
+        <select onchange="changeLanguage(this)">
+            <option value="0"><-English</option>
+            <option value="1"><-Koorgi</option>
+            <option value="2" selected><-Tulu</option>
+        </select>
+    </div>
+    <p></p>
+    <table>
+        
+    </table>
+<div>* with respect</div>
+<div>** suffix</div>
+    <script>
+        let ts = 2;
+        function changeLanguage(e){
+            ts=e.value;
+           let value = document.getElementsByTagName('input')[0].value;
+            shortlist({value})
+        }
+        function shortlist(e){
+            
+            let string = e.value;
+            let words = string.split(' ');
+
+            let p = document.getElementsByTagName('p')[0];
+            if(ts>0&&string.length){
+                let words2=words.map(i=>i);
+                words2.map((k,m)=>{
+                    let changed=false;
+                    db.map(i=>{
+                    let match = false;
+                    i[ts].map(j=>{
+                        if(j.replace(/\?/g,'').toLowerCase()==k.replace(/\?/g,'').toLowerCase())
+                            match=true;
+                    })
+                   
+                    if(match&&i[ts==1?2:1][0]){
+                        words2[m]=i[ts==1?2:1][0];
+                        changed=true;
+                    }
+                    
+                });
+                if(!changed)
+                    words2[m]='['+k+']';
+                
+                })
+               
+                p.innerHTML=String(words2).replace(/\,/g,' ');
+            }
+            else{
+                p.innerHTML='';
+            }
+           
+            let n = [];
+            db.map(i=>{
+                let z= 0;
+                //tulu default
+                i[2]=i[2]||[];
+                i[ts].map(j=>{
+                    let r = 0; 
+                    words.map(k=>{
+                        if(k.length==0)
+                            return;
+                       // console.log(RegExp('.*'+k+'.*','i'));
+                        let match = j.match(RegExp(''+k+'.*','i'));
+                        
+                        if(match && match[0].length){
+                            r += match[0].match(RegExp(k,'i'))[0].length;
+                            
+                        }
+                    })
+                    //console.log(i[0],'r',r);
+                    //console.log('j',j);
+                   // console.log(j,r)
+                    if(r)
+                        z=r;
+                    
+                })
+                //console.log('z',z);
+                if(z){
+                    i[3]=z;
+                    
+                    n.push(i);
+                    if(ts==0)n.sort((i,j)=>j[3]-i[3]);
+                    else n.sort((i,j)=>i[ts]>j[ts])
+                    
+                    //console.log(n);
+                }
+            });
+            //console.log(n);
+            let html = '<tr><th>English</th><th>Koorgi</th><th>Tulu</th></tr>';
+            let x=db;
+            if(string.trim().length)
+                x=n;
+            x.map(i=>html += '<tr><td>'+String(i[0].map(j=>' '+j)).toLowerCase().replace(/\,/g,'<br/>')+'</td><td>'+String(i[1].map(j=>' '+j)).toLowerCase().replace(/\,/g,'<br/>')+'</td><td>'+String(i[2].map(j=>' '+j)).toLowerCase().replace(/\,/g,'<br/>')+'</td></tr>');
+            document.getElementsByTagName('table')[0].innerHTML=html;
+        }
+        shortlist({value:''})
+    </script>
+</body>
+</html>
